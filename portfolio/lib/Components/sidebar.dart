@@ -33,21 +33,36 @@ class Sidebar extends StatelessWidget {
                 }),
             const SizedBox(height: 25),
             ListTile(
-                leading: const Icon(Icons.person_outlined,
+                leading: 
+                currentRoute == '/profile' ?
+                const Icon(Icons.person,
+                    color: Color.fromARGB(255, 2, 254, 103), size: 30.0)
+                    :
+                const Icon(Icons.person_outlined,
                     color: Color.fromARGB(255, 2, 229, 254), size: 30.0),
                 onTap: () {
                   Navigator.of(context).pushNamed('/profile');
                 }),
             const SizedBox(height: 25),
             ListTile(
-                leading: const Icon(Icons.devices_outlined,
+                leading: 
+                currentRoute == '/projects' ?
+                const Icon(Icons.devices,
+                    color: Color.fromARGB(255, 2, 254, 103), size: 30.0)
+                    :
+                const Icon(Icons.devices_outlined,
                     color: Color.fromARGB(255, 2, 229, 254), size: 30.0),
                 onTap: () {
                   Navigator.of(context).pushNamed('/projects');
                 }),
             const SizedBox(height: 25),
             ListTile(
-                leading: const Icon(Icons.mail_outlined,
+                leading: 
+                currentRoute == '/contact' ?
+                const Icon(Icons.mail,
+                    color: Color.fromARGB(255, 2, 254, 103), size: 30.0)
+                    :
+                const Icon(Icons.mail_outlined,
                     color: Color.fromARGB(255, 2, 229, 254), size: 30.0),
                 onTap: () {
                   Navigator.of(context).pushNamed('/contact');

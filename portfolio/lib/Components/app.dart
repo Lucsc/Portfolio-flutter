@@ -27,6 +27,7 @@ class App extends StatelessWidget {
       title: _title,
       theme: theme,
       darkTheme: darkTheme,
+      initialRoute: '/home',
       home: HomePage(),
       routes : {
         '/home' : (context) => HomePage(),
