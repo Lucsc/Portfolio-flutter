@@ -19,10 +19,6 @@ class Profile extends StatelessWidget {
         ],
       ),
       drawer: const Sidebar(),
-      
-      // body: Center(
-      //   child: Text('Portfolio Luc Schmitt'),
-      // ),
     );
   }
 }
