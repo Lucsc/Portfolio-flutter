@@ -20,22 +20,40 @@ class HomePage extends StatelessWidget {
               onPressed: () => _scaffold.currentState!.openDrawer()),
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Hello, I am Luc Schmitt',
-                    style: TextStyle(color: Colors.white, fontSize: 20)),
-                const SizedBox(height: 20),
-                student(),
-                const SizedBox(height: 20),
-                DownloadCv(
-                  state: DownloadCvState.notDownloaded,
-                  onDownload: () {},
-                  onStopDownload: () {},
-                  onOpen: () {},
-              )
+              Expanded (
+                child : Column (
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children : [
+                  // const SizedBox(height: 220),
+                  const Text('Hello, I am Luc Schmitt',
+                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                  student(),
+                  const SizedBox(height: 20),
+                  ],
+                )),
+              Expanded (
+                  child : Row (
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DownloadCv(
+                        state: DownloadCvState.notDownloaded,
+                        onDownload: () {},
+                        onStopDownload: () {},
+                        onOpen: () {},
+                      ),
+                      const SizedBox(width: 10),
+                      contactMe(context),
+                      
+                    ],
+                  )
+                ),
               ],
+             
             ),
-          )
+          ),
         ],
       ),
       drawer: const Sidebar(),
@@ -171,10 +189,11 @@ class ButtonShapeWidget extends StatelessWidget {
     return AnimatedContainer(
       duration: duration,
       curve: Curves.ease,
-      width: double.infinity,
+      width: 150,
+      height : 50,
       decoration: shape,
       child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: AnimatedOpacity(
               duration: duration,
               opacity: isDownloading || isFetchingDownload ? 0 : 1,
@@ -184,6 +203,7 @@ class ButtonShapeWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.button?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: CupertinoColors.activeBlue,
+                        fontSize: 20,
                       )))),
     );
   }
@@ -221,4 +241,27 @@ class ProgressIndicatorWidget extends StatelessWidget {
           },
         ));
   }
+}
+
+Widget contactMe(BuildContext context) {
+  return Container(
+    width: 150,
+    height: 50,
+    decoration: BoxDecoration(
+      color: Colors.black,
+      borderRadius: BorderRadius.circular(20),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        TextButton(
+          onPressed:  () =>
+          Navigator.of(context).pushNamed('/contact'),
+          child: const Text('Contact me',
+              style: TextStyle(color: Colors.white, fontSize: 20)),
+        ),
+      ],
+    ),
+  );
 }
